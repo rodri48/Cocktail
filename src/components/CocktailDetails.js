@@ -25,6 +25,7 @@ const CocktailDetails = () => {
       style={{
         backgroundColor: " 	rgb(255, 160, 122)",
         display: "flex",
+        height: " calc(100vh - 80px) ",
       }}
     >
       <motion.div
