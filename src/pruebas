@@ -1,0 +1,19 @@
+{posts.map((post1, index) => (
+          <div>
+            <div>
+              <img
+                src={post1.strDrinkThumb}
+                alt=""
+                style={{ width: "30%" }}
+              ></img>
+            </div>
+
+            <ul>
+              <li key={post1.id}>{post1.strDrink} </li>
+              <li key={post1.id}>
+                <b>Instructions:</b> {post1.strInstructions}
+              </li>
+            </ul>
+            <Button> Test Button</Button>
+          </div>
+        ))}
