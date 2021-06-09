@@ -10,6 +10,7 @@ export const NewProvider = ({ children }) => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data.drinks, "data");
+
         setPosts(data.drinks);
       });
   }, []);

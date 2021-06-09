@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useState, useContext } from "react";
 import { useParams } from "react-router-dom";
 import { motion } from "framer-motion";
 import Table from "react-bootstrap/Table";
@@ -8,18 +8,14 @@ import Context from "./NewProvider";
 
 const CocktailDetails = () => {
   const context = useContext(Context);
-  console.log(context, "here data");
 
+  console.log(context, "here data");
   const { id } = useParams();
 
   const id1 = context.findIndex((drink) => {
-    /*     console.log(drink.idDrink);
-    console.log(id); */
     return drink.idDrink === id;
   });
-
-  console.log(context[id1]);
-
+  const [state, setstate] = useState(context[id1]);
   return (
     <div
       style={{
@@ -39,19 +35,15 @@ const CocktailDetails = () => {
         }}
         style={{ marginLeft: "200px" }}
       >
-        <h1>{context[id1].strDrink} </h1>
+        <h1>{state.strDrink} </h1>
 
-        <img
-          src={context[id1].strDrinkThumb}
-          style={{ width: "500px" }}
-          alt=""
-        ></img>
+        <img src={state.strDrinkThumb} style={{ width: "500px" }} alt=""></img>
       </motion.div>
 
       <div style={{ marginRight: "150px" }}>
         <h1> Instructions</h1>
 
-        <h4> {context[id1].strInstructions}</h4>
+        <h4> {state.strInstructions}</h4>
         <>
           <Spinner animation="grow" />
           <Spinner animation="grow" />
@@ -76,56 +68,56 @@ const CocktailDetails = () => {
           <tbody>
             <tr>
               <td> 1 </td>
-              <td>{context[id1].strIngredient1}</td>
-              <td>{context[id1].strMeasure1}</td>
+              <td>{state.strIngredient1}</td>
+              <td>{state.strMeasure1}</td>
             </tr>
             <tr>
               <td>2</td>
-              <td>{context[id1].strIngredient2}</td>
-              <td>{context[id1].strMeasure2}</td>
+              <td>{state.strIngredient2}</td>
+              <td>{state.strMeasure2}</td>
             </tr>
             <tr>
               <td>3</td>
-              <td>{context[id1].strIngredient3}</td>
-              <td>{context[id1].strMeasure3}</td>
+              <td>{state.strIngredient3}</td>
+              <td>{state.strMeasure3}</td>
             </tr>
 
-            {context[id1].strMeasure4 === null ? (
+            {state.strMeasure4 === null ? (
               <div> </div>
             ) : (
               <tr>
                 <td>4</td>
-                <td>{context[id1].strIngredient4}</td>
-                <td>{context[id1].strMeasure4}</td>
+                <td>{state.strIngredient4}</td>
+                <td>{state.strMeasure4}</td>
               </tr>
             )}
 
-            {context[id1].strMeasure5 === null ? (
+            {state.strMeasure5 === null ? (
               <div> </div>
             ) : (
               <tr>
                 <td>5</td>
-                <td>{context[id1].strIngredient5}</td>
-                <td>{context[id1].strMeasure5}</td>
+                <td>{state.strIngredient5}</td>
+                <td>{state.strMeasure5}</td>
               </tr>
             )}
 
-            {context[id1].strMeasure6 === null ? (
+            {state.strMeasure6 === null ? (
               <div> </div>
             ) : (
               <tr>
                 <td>6</td>
-                <td>{context[id1].strIngredient6}</td>
-                <td>{context[id1].strMeasure6}</td>
+                <td>{state.strIngredient6}</td>
+                <td>{state.strMeasure6}</td>
               </tr>
             )}
-            {context[id1].strMeasure7 === null ? (
+            {state.strMeasure7 === null ? (
               <div> </div>
             ) : (
               <tr>
                 <td>7</td>
-                <td>{context[id1].strIngredient7}</td>
-                <td>{context[id1].strMeasure7}</td>
+                <td>{state.strIngredient7}</td>
+                <td>{state.strMeasure7}</td>
               </tr>
             )}
           </tbody>
